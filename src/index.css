@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap');
+@import "tailwindcss";
+
+body {
+  font-family: 'Outfit', sans-serif;
+}
+
+.blur-background {
+  filter: blur(5px);
+  pointer-events: none; /* Optional: to prevent interaction with blurred elements */
+}
+
+button {
+  cursor: pointer;
+}
