@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: freshkart-frontend
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npx serve -s dist
+    staticPublishPath: ./dist
+  - type: web
+    name: freshkart-backend
+    env: node
+    plan: free
+    repo: https://github.com/angmanish/freshkart
+    branch: main
+    rootDir: ./server
+    buildCommand: npm install
+    startCommand: node server.js
