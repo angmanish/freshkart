@@ -5,7 +5,7 @@ import Layout from "./components/Layout";
 import { Toaster } from "react-hot-toast";
 
 // ✅ Page imports
-import Home from "./pages/Home";
+import Home from "./pages/home";
 import Shop from "./pages/Shop";
 import ShopDetail from "./pages/ShopDetail";
 import AboutUs from "./pages/AboutUs";
