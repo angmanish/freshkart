@@ -1,7 +1,7 @@
 services:
   - type: web
     name: freshkart-frontend
-    env: node
+    env: static
     plan: free
     buildCommand: npm install && npm run build
     startCommand: npx serve -s dist
