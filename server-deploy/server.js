@@ -80,7 +80,10 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 // MongoDB Connection
-mongoose.connect(MONGO_URI)
+console.log('Attempting to connect to MongoDB with URI:', MONGO_URI);
+mongoose.connect(MONGO_URI, {
+  serverSelectionTimeoutMS: 5000 // Timeout after 5s instead of 30s
+})
   .then(() => console.log('MongoDB connected successfully'))
   .catch(err => console.error('MongoDB connection error:', err));
 
