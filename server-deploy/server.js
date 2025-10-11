@@ -18,7 +18,7 @@ const storeSettingsRoutes = require('./routes/storeSettings');
 
 const app = express();
 const server = http.createServer(app);
-const CORS_ORIGIN = process.env.CORS_ORIGIN || "https://freshkart.netlify.app";
+const CORS_ORIGIN = process.env.CORS_ORIGIN || "https://freshkart-nfjt.onrender.com";
 
 const io = new Server(server, {
   cors: {
