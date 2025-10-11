@@ -18,7 +18,7 @@ const storeSettingsRoutes = require('./routes/storeSettings');
 
 const app = express();
 const server = http.createServer(app);
-const CORS_ORIGIN = process.env.CORS_ORIGIN || "http://localhost:5173";
+const CORS_ORIGIN = process.env.CORS_ORIGIN || "https://freshkart-nfjt.onrender.com";
 
 const io = new Server(server, {
   cors: {
