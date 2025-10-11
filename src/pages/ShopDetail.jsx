@@ -16,7 +16,7 @@ export default function ShopDetail() {
   const [error, setError] = useState(null);
   const [isWishlisted, setIsWishlisted] = useState(false);
 
-  const API_BASE_URL = "http://localhost:5000/api";
+  const API_BASE_URL = "https://freshkart-nfjt.onrender.com/api";
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -144,7 +144,7 @@ export default function ShopDetail() {
         <div className="md:w-1/2">
           <div className="bg-gray-100 rounded-xl overflow-hidden shadow-lg">
             <img
-              src={`http://localhost:5000${product.imageUrl}`}
+              src={`https://freshkart-nfjt.onrender.com${product.imageUrl}`}
               alt={product.name}
               className="w-full h-full object-cover transform transition-transform duration-300 hover:scale-105"
             />

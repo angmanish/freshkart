@@ -15,7 +15,7 @@ export default function CustomerProfile() {
   const [profileImage, setProfileImage] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const API_BASE_URL = "http://localhost:5000/api";
+  const API_BASE_URL = "https://freshkart-nfjt.onrender.com/api";
 
   // Fetch profile
   useEffect(() => {

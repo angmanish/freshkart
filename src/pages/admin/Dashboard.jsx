@@ -37,27 +37,27 @@ export default function Dashboard() {
     setLoadingStats(true);
     try {
       // Fetch Total Users
-      const usersResponse = await fetch('http://localhost:5000/api/user/count');
+      const usersResponse = await fetch('https://freshkart-nfjt.onrender.com/api/user/count');
       const usersData = await usersResponse.json();
       setTotalUsers(usersData.count);
 
       // Fetch Total Products
-      const productsResponse = await fetch('http://localhost:5000/api/products');
+      const productsResponse = await fetch('https://freshkart-nfjt.onrender.com/api/products');
       const productsData = await productsResponse.json();
       setTotalProducts(productsData.totalProducts);
 
       // Fetch Total Orders
-      const ordersResponse = await fetch('http://localhost:5000/api/orders/count');
+      const ordersResponse = await fetch('https://freshkart-nfjt.onrender.com/api/orders/count');
       const ordersData = await ordersResponse.json();
       setTotalOrders(ordersData.count);
 
       // Fetch Total Revenue
-      const revenueResponse = await fetch('http://localhost:5000/api/orders/revenue');
+      const revenueResponse = await fetch('https://freshkart-nfjt.onrender.com/api/orders/revenue');
       const revenueData = await revenueResponse.json();
       setTotalRevenue(revenueData.totalRevenue.toFixed(2));
 
       // Fetch Order Status Counts
-      const statusCountsResponse = await fetch('http://localhost:5000/api/orders/status-counts');
+      const statusCountsResponse = await fetch('https://freshkart-nfjt.onrender.com/api/orders/status-counts');
       const statusCountsData = await statusCountsResponse.json();
       setPendingOrdersCount(statusCountsData.Pending || 0);
       setConfirmedOrdersCount(statusCountsData.Processing || 0);
@@ -66,28 +66,28 @@ export default function Dashboard() {
       setCancelledOrdersCount(statusCountsData.Cancelled || 0);
 
       // Fetch chart data
-      const salesChartResponse = await fetch(`http://localhost:5000/api/analytics/sales-over-time?months=${months}`);
+      const salesChartResponse = await fetch(`https://freshkart-nfjt.onrender.com/api/analytics/sales-over-time?months=${months}`);
       const salesChartJson = await salesChartResponse.json();
       setSalesChartData(salesChartJson);
       console.log("Sales Chart Data:", salesChartJson);
 
-      const ordersByCategoryResponse = await fetch(`http://localhost:5000/api/analytics/orders-by-category?months=${months}`);
+      const ordersByCategoryResponse = await fetch(`https://freshkart-nfjt.onrender.com/api/analytics/orders-by-category?months=${months}`);
       const ordersByCategoryJson = await ordersByCategoryResponse.json();
       setOrdersByCategoryData(ordersByCategoryJson);
       console.log("Orders By Category Data:", ordersByCategoryJson);
 
-      const revenueSourcesResponse = await fetch(`http://localhost:5000/api/analytics/revenue-sources?months=${months}`);
+      const revenueSourcesResponse = await fetch(`https://freshkart-nfjt.onrender.com/api/analytics/revenue-sources?months=${months}`);
       const revenueSourcesJson = await revenueSourcesResponse.json();
       setRevenueSourcesData(revenueSourcesJson);
       console.log("Revenue Sources Data:", revenueSourcesJson);
 
-      const userGrowthResponse = await fetch(`http://localhost:5000/api/analytics/user-growth?months=${months}`);
+      const userGrowthResponse = await fetch(`https://freshkart-nfjt.onrender.com/api/analytics/user-growth?months=${months}`);
       const userGrowthJson = await userGrowthResponse.json();
       setUserGrowthData(userGrowthJson);
       console.log("User Growth Data:", userGrowthJson);
 
       // Fetch most buying products
-      const mostBuyingProductsResponse = await fetch(`http://localhost:5000/api/analytics/most-buying-products?months=${months}`);
+      const mostBuyingProductsResponse = await fetch(`https://freshkart-nfjt.onrender.com/api/analytics/most-buying-products?months=${months}`);
       const mostBuyingProductsJson = await mostBuyingProductsResponse.json();
       setMostBuyingProducts(mostBuyingProductsJson);
       console.log("Most Buying Products Data:", mostBuyingProductsJson);
@@ -245,7 +245,7 @@ export default function Dashboard() {
                 {mostBuyingProducts.map((product) => (
                   <div key={product.name} className="flex items-center gap-4">
                     <div className="text-xl font-bold text-gray-600">{product.rank}.</div>
-                    <img src={`http://localhost:5000${product.imageUrl}`} alt={product.name} className="object-cover w-16 h-16 rounded-lg" />
+                    <img src={`https://freshkart-nfjt.onrender.com${product.imageUrl}`} alt={product.name} className="object-cover w-16 h-16 rounded-lg" />
                     <div className="flex-1">
                       <p className="font-medium text-gray-800">{product.name}</p>
                       <p className="text-sm text-gray-500">{product.buyingPercentage}% of total sales</p>

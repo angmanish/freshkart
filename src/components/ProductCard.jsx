@@ -10,7 +10,7 @@ const ProductCard = ({ product }) => {
   const { fetchCart } = useCart();
   const [isWishlisted, setIsWishlisted] = useState(false);
 
-  const API_BASE_URL = "http://localhost:5000/api";
+  const API_BASE_URL = "https://freshkart-nfjt.onrender.com/api";
 
   // Check wishlist
   useEffect(() => {
@@ -108,7 +108,7 @@ const ProductCard = ({ product }) => {
   {/* Image Section */}
   <div className="relative p-6 bg-white">
     <img
-      src={`http://localhost:5000${product.imageUrl}`}
+      src={`https://freshkart-nfjt.onrender.com${product.imageUrl}`}
       alt={product.name}
       className="object-contain w-full h-48 mx-auto"
     />

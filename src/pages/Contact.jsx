@@ -29,7 +29,7 @@ export default function Contact() {
 
     const loadingToast = toast.loading("Sending message...");
     try {
-      const response = await axios.post("http://localhost:5000/api/messages", formData);
+      const response = await axios.post("https://freshkart-nfjt.onrender.com/api/messages", formData);
       setSuccess(response.data.message);
       setFormData({ senderName: "", senderEmail: "", subject: "", message: "" });
       toast.success("Message sent successfully!", { id: loadingToast });

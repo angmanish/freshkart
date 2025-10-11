@@ -10,7 +10,7 @@ export const NotificationProvider = ({ children }) => {
   const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
-    const socket = io('http://localhost:5000');
+    const socket = io('https://freshkart-nfjt.onrender.com');
 
     socket.on('connect', () => {
       console.log('Connected to Socket.IO server');

@@ -74,7 +74,7 @@ export default function Cart() {
               <tr key={item.productId._id} className="border-b">
                 <td className="py-3 px-4">{index + 1}</td>
                 <td className="py-3 px-4">
-                  <img src={`http://localhost:5000${item.imageUrl}`} alt={item.name} className="w-16 h-16 object-cover rounded" />
+                  <img src={`https://freshkart-nfjt.onrender.com${item.imageUrl}`} alt={item.name} className="w-16 h-16 object-cover rounded" />
                 </td>
                 <td className="py-3 px-4">{item.name}</td>
                 <td className="py-3 px-4">

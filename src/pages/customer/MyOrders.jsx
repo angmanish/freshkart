@@ -19,7 +19,7 @@ export default function MyOrders() {
     }
 
     try {
-      const response = await fetch(`http://localhost:5000/api/orders/user/${userId}`);
+      const response = await fetch(`https://freshkart-nfjt.onrender.com/api/orders/user/${userId}`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }

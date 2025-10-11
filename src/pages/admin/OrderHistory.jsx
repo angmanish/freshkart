@@ -16,7 +16,7 @@ export default function OrderHistory() {
   useEffect(() => {
     const fetchOrdersAndStatuses = async () => {
       try {
-        const ordersResponse = await fetch("http://localhost:5000/api/orders");
+        const ordersResponse = await fetch("https://freshkart-nfjt.onrender.com/api/orders");
         if (!ordersResponse.ok) throw new Error(`HTTP error! status: ${ordersResponse.status}`);
         const ordersData = await ordersResponse.json();
 
@@ -25,7 +25,7 @@ export default function OrderHistory() {
         );
         setOrders(historicalOrders);
 
-        const statusesResponse = await fetch("http://localhost:5000/api/orders/statuses");
+        const statusesResponse = await fetch("https://freshkart-nfjt.onrender.com/api/orders/statuses");
         if (!statusesResponse.ok) throw new Error(`HTTP error! status: ${statusesResponse.status}`);
         const statusesData = await statusesResponse.json();
         setAvailableStatuses(statusesData.filter(status => status === "Delivered" || status === "Cancelled"));

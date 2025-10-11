@@ -35,8 +35,8 @@ export default function History() {
     try {
       setLoading(true);
       const [ordersResponse, userResponse] = await Promise.all([
-        fetch(`http://localhost:5000/api/orders/user/${userId}`),
-        fetch(`http://localhost:5000/api/user/${userId}`),
+        fetch(`https://freshkart-nfjt.onrender.com/api/orders/user/${userId}`),
+        fetch(`https://freshkart-nfjt.onrender.com/api/user/${userId}`),
       ]);
 
       const ordersData = await ordersResponse.json();

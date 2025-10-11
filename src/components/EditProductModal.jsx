@@ -18,7 +18,7 @@ export default function EditProductModal({ product, onClose, onProductUpdated })
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const API_BASE_URL = "http://localhost:5000/api";
+  const API_BASE_URL = "https://freshkart-nfjt.onrender.com/api";
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -181,7 +181,7 @@ function FileUpload({ currentImageUrl, setImage }) {
       <label className="block mb-1 font-medium text-gray-700">Product Image</label>
       {currentImageUrl && (
         <div className="mb-2">
-          <img src={`http://localhost:5000${currentImageUrl}`} alt="Current Product" className="object-cover w-24 h-24 rounded-md" />
+          <img src={`https://freshkart-nfjt.onrender.com${currentImageUrl}`} alt="Current Product" className="object-cover w-24 h-24 rounded-md" />
           <p className="text-sm text-gray-500">Current Image</p>
         </div>
       )}

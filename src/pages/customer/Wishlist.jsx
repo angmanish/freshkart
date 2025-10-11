@@ -12,7 +12,7 @@ export default function Wishlist() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const API_BASE_URL = "http://localhost:5000/api";
+  const API_BASE_URL = "https://freshkart-nfjt.onrender.com/api";
 
   const fetchWishlist = async () => {
     if (!userId) {
@@ -118,7 +118,7 @@ export default function Wishlist() {
             <div key={product._id} className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col">
               <Link to={`/shop-detail/${product._id}`}>
                 <img
-                  src={`http://localhost:5000${product.imageUrl}`}
+                  src={`httpshttps://freshkart-nfjt.onrender.com${product.imageUrl}`}
                   alt={product.name}
                   className="w-full h-48 object-cover"
                 />

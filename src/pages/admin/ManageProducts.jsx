@@ -20,7 +20,7 @@ export default function ManageProducts() {
   const loadProducts = async (page = currentPage) => {
     try {
       setLoading(true);
-      const apiUrl = `http://localhost:5000/api/products?page=${page}&limit=${productsPerPage}&search=${searchTerm}`;
+      const apiUrl = `https://freshkart-nfjt.onrender.com/api/products?page=${page}&limit=${productsPerPage}&search=${searchTerm}`;
       console.log("Fetching products from:", apiUrl);
       const res = await axios.get(apiUrl);
       console.log("API Response Data:", res.data);
@@ -51,7 +51,7 @@ export default function ManageProducts() {
     if (!window.confirm("Are you sure you want to delete this product?")) return;
     const loadingToast = toast.loading("Deleting product...");
     try {
-      await axios.delete(`http://localhost:5000/api/products/${id}`);
+      await axios.delete(`https://freshkart-nfjt.onrender.com/api/products/${id}`);
       toast.success("Product deleted successfully!", { id: loadingToast });
       loadProducts();
     } catch (err) {
@@ -105,7 +105,7 @@ export default function ManageProducts() {
                 <tr key={product._id} className="border-t">
                   <td className="px-4 py-2">
                     <img
-                      src={product.imageUrl ? `http://localhost:5000${product.imageUrl}` : 'https://via.placeholder.com/48'}
+                      src={product.imageUrl ? `https://freshkart-nfjt.onrender.com${product.imageUrl}` : 'https://via.placeholder.com/48'}
                       alt={product.name}
                       className="object-cover w-12 h-12 rounded"
                     />

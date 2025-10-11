@@ -13,7 +13,7 @@ export default function Shop() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const API_BASE_URL = "http://localhost:5000/api";
+  const API_BASE_URL = "https://freshkart-nfjt.onrender.com/api";
 
   useEffect(() => {
     const fetchProductsAndCategories = async () => {
@@ -82,7 +82,7 @@ export default function Shop() {
                   <img
                     src={
                       firstProduct?.imageUrl
-                        ? `http://localhost:5000${firstProduct.imageUrl}`
+                        ? `https://freshkart-nfjt.onrender.com${firstProduct.imageUrl}`
                         : "https://via.placeholder.com/150"
                     }
                     alt={firstProduct?.name || cat.name}

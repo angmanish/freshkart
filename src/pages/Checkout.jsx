@@ -28,8 +28,8 @@ export default function Checkout() {
       }
       try {
         const [cartResponse, userResponse] = await Promise.all([
-          fetch(`http://localhost:5000/api/cart/${userId}`),
-          fetch(`http://localhost:5000/api/user/${userId}`),
+          fetch(`https://freshkart-nfjt.onrender.com/api/cart/${userId}`),
+          fetch(`https://freshkart-nfjt.onrender.com/api/user/${userId}`),
         ]);
 
         const cartData = await cartResponse.json();
@@ -82,8 +82,7 @@ export default function Checkout() {
     const newQuantity = item.quantity + delta;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/cart/${userId}/${productId}`, {
-        method: 'PUT',
+      const response = await fetch(`https://freshkart-nfjt.onrender.com/api/cart/${userId}/${productId}`, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -104,7 +103,7 @@ export default function Checkout() {
     if (!userId) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/cart/${userId}/${productId}`, {
+      const response = await fetch(`https://freshkart-nfjt.onrender.com/api/cart/${userId}/${productId}`, {
         method: 'DELETE',
       });
       const data = await response.json();
@@ -149,7 +148,7 @@ export default function Checkout() {
 
       // Save the new address to the user's profile
       try {
-        const saveAddressResponse = await fetch(`http://localhost:5000/api/user/${userId}/address`, {
+        const saveAddressResponse = await fetch(`https://freshkart-nfjt.onrender.com/api/user/${userId}/address`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -178,7 +177,7 @@ export default function Checkout() {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/orders', {
+      const response = await fetch('https://freshkart-nfjt.onrender.com/api/orders', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -675,7 +674,7 @@ export default function Checkout() {
             {cartItems.map((item) => (
               <div key={item.productId} className="flex justify-between items-center">
                 <div className="flex items-center">
-                  <img src={`http://localhost:5000${item.imageUrl}`} alt={item.name} className="w-16 h-16 object-cover rounded mr-4" />
+                  <img src={`https://freshkart-nfjt.onrender.com${item.imageUrl}`} alt={item.name} className="w-16 h-16 object-cover rounded mr-4" />
                   <div>
                     <h4 className="font-semibold">{item.name}</h4>
                     <div className="flex items-center mt-2">

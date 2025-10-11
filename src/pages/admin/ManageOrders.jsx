@@ -20,7 +20,7 @@ export default function ManageOrders() {
     const fetchOrdersAndStatuses = async () => {
       setLoading(true);
       try {
-        const ordersResponse = await fetch(`http://localhost:5000/api/orders?page=${currentPage}&limit=${ordersPerPage}`);
+        const ordersResponse = await fetch(`https://freshkart-nfjt.onrender.com/api/orders?page=${currentPage}&limit=${ordersPerPage}`);
         if (!ordersResponse.ok) throw new Error(`HTTP error! status: ${ordersResponse.status}`);
         const ordersData = await ordersResponse.json();
         
@@ -29,7 +29,7 @@ export default function ManageOrders() {
         setTotalPages(ordersData.totalPages);
 
         if (availableStatuses.length === 0) {
-          const statusesResponse = await fetch("http://localhost:5000/api/orders/statuses");
+          const statusesResponse = await fetch("https://freshkart-nfjt.onrender.com/api/orders/statuses");
           if (!statusesResponse.ok) throw new Error(`HTTP error! status: ${statusesResponse.status}`);
           const statusesData = await statusesResponse.json();
           setAvailableStatuses(statusesData.filter(status => status !== 'Delivered' && status !== 'Cancelled'));
@@ -56,7 +56,7 @@ export default function ManageOrders() {
   const handleStatusChange = async (orderId, newStatus) => {
     const loadingToast = toast.loading("Updating order status...");
     try {
-      const response = await fetch(`http://localhost:5000/api/orders/${orderId}/status`, {
+      const response = await fetch(`https://freshkart-nfjt.onrender.com/api/orders/${orderId}/status`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: newStatus }),

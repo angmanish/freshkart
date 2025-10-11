@@ -10,7 +10,7 @@ export default function OrderConfirmation() {
     if (order?.userId) {
       const fetchUser = async () => {
         try {
-          const response = await fetch(`http://localhost:5000/api/user/${order.userId}`);
+          const response = await fetch(`https://freshkart-nfjt.onrender.com/api/user/${order.userId}`);
           const userData = await response.json();
           if (response.ok) {
             setUser(userData);

@@ -20,7 +20,7 @@ export default function AddProducts() {
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
 
-  const API_BASE_URL = "http://localhost:5000/api"; // Adjust if your backend is on a different port/URL
+  const API_BASE_URL = "https://freshkart-nfjt.onrender.com/api"; // Adjust if your backend is on a different port/URL
 
   useEffect(() => {
     fetchCategories();
