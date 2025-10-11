@@ -92,52 +92,6 @@ app.get('/', (req, res) => {
   res.send('Server is running!');
 });
 
-// Registration Route
-app.post('/api/register', async (req, res) => {
-  const { name, email, phone, password } = req.body;
-
-  try {
-    let user = await User.findOne({ email });
-    if (user) {
-      return res.status(400).json({ message: 'User already exists' });
-    }
-
-    user = new User({
-      name,
-      email,
-      phone,
-      password,
-    });
-
-    await user.save();
-    res.status(201).json({ message: 'User registered successfully' });
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send('Server error');
-  }
-});
-
-// Login Route
-app.post('/api/login', async (req, res) => {
-  const { email, password } = req.body;
-
-  try {
-    const user = await User.findOne({ email });
-    if (!user) {
-      return res.status(400).json({ message: 'Invalid credentials' });
-    }
-
-    if (user.password !== password) {
-      return res.status(400).json({ message: 'Invalid credentials' });
-    }
-
-    res.status(200).json({ message: 'Logged in successfully', role: user.role, userId: user._id });
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send('Server error');
-  }
-});
-
 
 
 
