@@ -23,7 +23,7 @@ const CORS_ORIGIN = process.env.CORS_ORIGIN || "https://feedokart.netlify.app";
 const io = new Server(server, {
   cors: {
     origin: CORS_ORIGIN,
-    methods: ["GET", "POST"]
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"]
   }
 });
 const PORT = process.env.PORT || 5000;
