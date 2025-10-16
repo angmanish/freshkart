@@ -31,12 +31,13 @@ export default function LoginModal({ isOpen, onClose, navigate }) {
   const [isResetPassword, setIsResetPassword] = useState(false);
 
   const { login } = useAuth();
+  const API_BASE_URL = "https://freshkart-nfjt.onrender.com/api";
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     const loadingToast = toast.loading("Logging in...");
     try {
-      const response = await fetch("/api/login", {
+      const response = await fetch(`${API_BASE_URL}/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -72,7 +73,7 @@ export default function LoginModal({ isOpen, onClose, navigate }) {
 
     const loadingToast = toast.loading("Registering...");
     try {
-      const response = await fetch("/api/register", {
+      const response = await fetch(`${API_BASE_URL}/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, phone, password }),
@@ -279,7 +280,7 @@ export default function LoginModal({ isOpen, onClose, navigate }) {
                   // Send OTP
                   const loadingToast = toast.loading("Sending OTP...");
                   try {
-                    const response = await fetch("/api/send-otp", {
+                    const response = await fetch(`${API_BASE_URL}/send-otp`, {
                       method: "POST",
                       headers: { "Content-Type": "application/json" },
                       body: JSON.stringify({ email }),
@@ -299,7 +300,7 @@ export default function LoginModal({ isOpen, onClose, navigate }) {
                   // Verify OTP
                   const loadingToast = toast.loading("Verifying OTP...");
                   try {
-                    const response = await fetch("/api/verify-otp", {
+                    const response = await fetch(`${API_BASE_URL}/verify-otp`, {
                       method: "POST",
                       headers: { "Content-Type": "application/json" },
                       body: JSON.stringify({ email, otp }),
@@ -379,7 +380,7 @@ export default function LoginModal({ isOpen, onClose, navigate }) {
                 e.preventDefault();
                 const loadingToast = toast.loading("Resetting password...");
                 try {
-                  const response = await fetch("/api/reset-password", {
+                  const response = await fetch(`${API_BASE_URL}/reset-password`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ email, otp, newPassword }),
